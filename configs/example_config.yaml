@@ -1,0 +1,43 @@
+# Example configuration for vector generation experiments
+
+# Output directory for results
+output_dir: results/example_run
+
+# Random seed for reproducibility
+seed: 42
+
+# Dimensions to test
+dimensions: [8, 16, 32]
+
+# Number of vectors to generate for each dimension
+vector_counts: [4, 10, 20, 40, 60, 100]
+
+# Methods to compare
+methods:
+  random_sampling:
+    enabled: true
+    type: random
+    parameters:
+      oversampling_factor: 2.0
+      save_vectors: false
+  
+  johnson_lindenstrauss:
+    enabled: true
+    type: jl
+    parameters:
+      oversampling_factor: 2.0
+      save_vectors: false
+  
+  energy_minimization:
+    enabled: true
+    type: energy
+    parameters:
+      energy_power: 12.0
+      max_iterations: 300
+      learning_rate: 0.01
+      device: null  # Auto-detect
+      save_vectors: false
+
+# Visualization settings
+generate_plots: true
+plot_title: "Almost Orthogonal Vector Generation Comparison"

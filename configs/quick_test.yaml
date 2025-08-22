@@ -1,0 +1,30 @@
+# Quick test configuration with small parameters
+
+output_dir: results/quick_test
+seed: 42
+
+dimensions: [8, 16]
+vector_counts: [4, 10, 20]
+
+methods:
+  random:
+    enabled: true
+    type: random
+    parameters:
+      oversampling_factor: 2.0
+  
+  jl:
+    enabled: true
+    type: jl
+    parameters:
+      oversampling_factor: 2.0
+  
+  energy:
+    enabled: true
+    type: energy
+    parameters:
+      energy_power: 12.0
+      max_iterations: 50  # Reduced for quick test
+      learning_rate: 0.01
+
+generate_plots: true
